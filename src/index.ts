@@ -54,7 +54,7 @@ generatorHandler({
 			semicolons: SemicolonPreference.Remove,
 		})
 
-		models.filter(model => config.skipModels.includes(model.name)).forEach((model) => {
+		models.filter(model => !config.skipModels.includes(model.name)).forEach((model) => {
 			const sourceFile = project.createSourceFile(
 				`${outputPath}/${model.name.toLowerCase()}.ts`,
 				{},
